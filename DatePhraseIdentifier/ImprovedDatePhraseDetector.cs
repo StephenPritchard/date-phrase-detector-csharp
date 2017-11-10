@@ -106,6 +106,18 @@ namespace DatePhraseIdentifier
             // TODO: or at least reducing the patterns considered in each loop.
             //
             // TODO: Try and pull out methods to avoid duplicating code.
+            //
+            // TODO: This only considers 1 level of composite phrase. However, it's conceivable
+            // TODO: that there could be multiple levels of nesting, which wouldn't be detected
+            // TODO: by this. For example, this will detect "Halloween" (basic),
+            // TODO: and "Halloween next year" (1st level composite), but won't detect
+            // TODO: "Friday after Halloween next year" (2nd level composite).
+            // TODO: can fix this buy calling FindCompositePhrases again, using the identified
+            // TODO: composite phrases from the 1st run as input, and keep doing this
+            // TODO: until no more composite phrases are found.
+            // TODO: at the moment, i clumsily re-search for basic phrases after taking out any
+            // TODO: 1st order composite phrases by just putting %X and %D at the end of the
+            // TODO: composite phrases regexes.
             
             var result = new List<string>();
             var remainingInput = input;
