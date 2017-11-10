@@ -6,14 +6,14 @@
 ## Note: %D is a token for a day of the week
 (?:(?:[Tt]he|[Aa]) )?day (?:after|before) %X
 # TODO: Misses written numbers greater than 10
-(?:\d+|[Oo]ne|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) (?:days?|weeks?|months?|(?:business days?)|\w{3,6}days?) (?:after|before|from) %X
+(?:%D,? )?(?:\d+|[Oo]ne|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) (?:days?|weeks?|months?|(?:business days?)|\w{3,6}days?) (?:after|before|from) %X
 (?:[Aa]|[Oo]ne|1) fortnight (?:after|before|from) %X
 %D week
 %D last week
 %D next week
 %D in (?:1|[Oo]ne) week
 %D in (?:[2-9]|\d\d+|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) weeks
-(?:1st|2nd|3rd|4th|5th|[Ff]irst|[Ss]econd|[Tt]hird|[Ff]ourth|[Ff]ifth) %D of the month
+(?:1st|2nd|3rd|4th|5th|[Ff]irst|[Ss]econd|[Tt]hird|[Ff]ourth|[Ff]ifth|[Ll]ast) %D of the month
 [Nn]ext %D
 [Nn]ext %X
 %D after next
