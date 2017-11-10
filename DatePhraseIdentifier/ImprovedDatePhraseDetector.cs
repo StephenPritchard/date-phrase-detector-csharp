@@ -112,6 +112,10 @@ namespace DatePhraseIdentifier
 
             foreach (var pattern in _compositePhrases)
             {
+                // Note there is some additional nesting in if statements etc here, because I 
+                // make a couple of checks to avoid spending time searching for patterns that
+                // won't be there. All the nested code is a but awkward, but hopefully a bit faster.
+
                 // if the pattern does not contain %X, then it must only contain %D,
                 // so dont loop through all the basic phrases for this pattern,
                 // just loop through days of week.

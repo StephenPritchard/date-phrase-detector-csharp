@@ -88,7 +88,7 @@ May \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
 #
 # Days of week
 [Mm]on(?:\.|day)?\b
-[Tt]ues? (?:\.|day)?\b
+[Tt]ues?(?:\.|day)?\b
 [Ww]ed(?:\.|nesday)
 [Tt]hurs(?:\.|day)?\b
 [Ff]ri(?:\.|day)?\b
