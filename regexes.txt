@@ -1,0 +1,101 @@
+#################################################
+# REGULAR EXPRESSIONS FOR DATE PHRASE DETECTION #
+#################################################
+#
+#
+#
+# 3 bad regexes, just to test regex validation
+[
+[0-9]++
+*
+#
+#
+# TODO: The next regexes are for dates, but don't rule out invalid dates e.g. 34/34/9999. Fix this.
+[0-2]\d\d\d[\.\-\/]\d\d?[\.\-\/]\d\d?
+\d\d?[\/:\.\-]\d\d?[\/:\.\-]\d\d(?:\d\d)?
+###### Australian public holidays
+###### https://data.gov.au/dataset/australian-holidays-machine-readable-dataset
+[Nn]ew [Yy]ear'?s [Dd]ay
+[Aa]ustralia [Dd]ay
+[Ll]abour [Dd]ay
+[Mm]arch [Pp]ublic [Hh]oliday
+[Cc]anberra [Dd]ay
+Eight Hours Day
+[Ll]abour [Dd]ay
+[Aa]nzac [Dd]ay
+May [Dd]ay
+[Ll]abour [Dd]ay
+[Ww]estern [Aa]ustralia [Dd]ay
+[Qq]ueen'?s [Bb]irthday
+[Pp]icnic [Dd]ay
+[Ff]amily (&|and) [Cc]ommunity [Dd]ay
+(?:AFL)? Grand Final(?: [Dd]ay)?
+Labour [Dd]ay
+[Mm]elbourne [Cc]up [Dd]ay
+[Cc]hristmas [Ee]ve
+[Cc]hristmas [Dd]ay
+Boxing [Dd]ay
+Proclamation [Dd]ay
+[Nn]ew [Yy]ear'?s [Ee]ve
+Good [Ff]riday
+Easter(?: ?(Saturday|Sunday|Monday|Tuesday))?
+#
+#
+####### Additional festival days
+[Hh]alloween
+[Mm]other'?s [Dd]ay
+[Ff]ather'?s [Dd]ay
+9[\/\-]11
+#
+#
+######## Text dates
+[Jj]an(?:\.|uary)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Jj]an(?:\.|uary)?(?:,? (?:\d\d|')\d\d)?
+[Ff]eb(?:\.|ruary)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Ff]eb(?:\.|ruary)?(?:,? (?:\d\d|')\d\d)?
+[Mm]ar(?:\.|ch)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Mm]ar(?:\.|ch)?(?:,? (?:\d\d|')\d\d)?
+[Aa]pr(?:\.|il)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Aa]pr(?:\.|il)?(?:,? (?:\d\d|')\d\d)?
+May \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? May(?:,? (?:\d\d|')\d\d)?
+[Jj]un(?:\.|e)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Jj]un(?:\.|e)?(?:,? (?:\d\d|')\d\d)?
+[Jj]ul(?:\.|y)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Jj]ul(?:\.|y)?(?:,? (?:\d\d|')\d\d)?
+[Aa]ug(?:\.|ust)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Aa]ug(?:\.|ust)?(?:,? (?:\d\d|')\d\d)?
+[Ss]ep(?:\.|tember)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Ss]ep(?:\.|tember)?(?:,? (?:\d\d|')\d\d)?
+[Oo]ct(?:\.|ober)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Oo]ct(?:\.|ober)?(?:,? (?:\d\d|')\d\d)?
+[Nn]ov(?:\.|ember)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Nn]ov(?:\.|ember)?(?:,? (?:\d\d|')\d\d)?
+[Dd]ec(?:\.|ember)? \d\d?(?:(?:st|nd|rd|th)?(?:,? (?:\d\d|')\d\d)?)
+\d\d?(?:st|nd|rd|th)? [Dd]ec(?:\.|ember)?(?:,? (?:\d\d|')\d\d)?
+#
+#
+##### Abbreviated dates, number only
+[Tt]he (?:[23]?1st|2?2nd|2?3rd|[12]?[456789]th|11th|12th|10th|20th)
+#
+#
+###### Special relative Date case using "days ago", where its from now, so the phrase is still basic
+# Note: i'm not considering "weeks ago" or "months ago" because this language does not seem date
+# specific, it more refers to a vague time in the past, rather than a specific date, and this is
+# a date phrase identifier, not a time expression identifier.
+(?:\d+|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) days ago
+(?:1|[Oo]ne) day ago
+#
+# Days of week
+[Mm]on(?:\.|day)?\b
+[Tt]ues? (?:\.|day)?\b
+[Ww]ed(?:\.|nesday)
+[Tt]hurs(?:\.|day)?\b
+[Ff]ri(?:\.|day)?\b
+[Ss]at(?:\.|urday)
+[Ss]un(?:\.|day)
+######## Basic day
+[Yy]esterday
+[Tt]omorrow
+[Tt]oday
+[Nn]ow
