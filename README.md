@@ -12,3 +12,11 @@ Much of the logic here is contained in the regexes within these
 files. The public holidays listed are from an Australian database,
 you could use your own for a different country by editing the regexes.txt
 file.
+
+Code:
+Program.cs (main)
+IDatePhraseDetector.cs (interface specifying a date phrase detector)
+SimpleDatePhraseDetector.cs (1st attempt, now superceded. Basic date-phrases only)
+ImprovedDatePhraseDetector.cs (includes composite date-phrases with 1 level of nesting)
+DatePhraseIdentificationSimulator.cs (simple class to put the detector to work on the console)
+ExtensionMethods.cs (just some extra methods, mainly for reading in the regexes from file)
