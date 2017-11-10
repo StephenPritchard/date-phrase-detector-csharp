@@ -15,7 +15,6 @@
 \d\d?[\/:\.\-]\d\d?[\/:\.\-]\d\d(?:\d\d)?
 ###### Australian public holidays
 ###### https://data.gov.au/dataset/australian-holidays-machine-readable-dataset
-[Nn]ew [Yy]ear'?s [Dd]ay
 [Aa]ustralia [Dd]ay
 [Ll]abour [Dd]ay
 [Mm]arch [Pp]ublic [Hh]oliday
@@ -32,13 +31,12 @@ May [Dd]ay
 (?:AFL)? Grand Final(?: [Dd]ay)?
 Labour [Dd]ay
 [Mm]elbourne [Cc]up [Dd]ay
-[Cc]hristmas [Ee]ve
-[Cc]hristmas [Dd]ay
+[Cc]hristmas(?: [Ee]ve| [Dd]ay)?
 Boxing [Dd]ay
 Proclamation [Dd]ay
-[Nn]ew [Yy]ear'?s [Ee]ve
+[Nn]ew [Yy]ear'?s(?: [Ee]ve| [Dd]ay)?
 Good [Ff]riday
-Easter(?: ?(Saturday|Sunday|Monday|Tuesday))?
+[Ee]aster(?: Saturday| Sunday| Monday| Tuesday)?
 #
 #
 ####### Additional festival days
