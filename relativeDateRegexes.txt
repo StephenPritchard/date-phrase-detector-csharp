@@ -9,9 +9,17 @@
 (?:\d+|[Oo]ne|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) (?:days?|weeks?|months?|(?:business days?)|\w{3,6}days?) (?:after|before|from) %X
 (?:[Aa]|[Oo]ne|1) fortnight (?:after|before|from) %X
 %D week
+%D last week
+%D next week
+%D in (?:1|[Oo]ne) week
+%D in (?:[2-9]|\d\d+|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) weeks
+(?:1st|2nd|3rd|4th|5th|[Ff]irst|[Ss]econd|[Tt]hird|[Ff]ourth|[Ff]ifth) %D of the month
 [Nn]ext %D
 [Nn]ext %X
-%D (?: after|before) next
+%D after next
+%D before last
+%D after %X
+%D before %X
 # rule out 1, because i dont think e.g., "1 Wednesday ago" is sensible. "2 Wednesdays ago" makes sense
 (?:[2-9]|\d\d+|[Tt]wo|[Tt]hree|[Ff]our|[Ff]ive|[Ss]ix|[Ss]even|[Ee]ight|[Nn]ine|[Tt]en) %Ds? ago
 # For example, "Wednesday, 12-02-2009" or "Thursday, Christmas Eve"
